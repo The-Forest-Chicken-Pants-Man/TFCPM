@@ -2,9 +2,11 @@
     <qresource prefix="/">
         <file>res/box.jpg</file>
         <file>res/fire.png</file>
-        <file>res/forest1.jpg</file>
         <file>res/huo.png</file>
-        <file>res/scene0.jpg</file>
-        <file>res/button.png</file>
+        <file>res/iconflag.png</file>
+        <file>res/statebutton.png</file>
+        <file>res/gamescene.png</file>
+        <file>res/mainscene.jpg</file>
+        <file>res/playbutton.png</file>
     </qresource>
 </RCC>

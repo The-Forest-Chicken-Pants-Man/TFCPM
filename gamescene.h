@@ -2,7 +2,6 @@
 #define GAMESCENE_H
 
 #include <QMainWindow>
-#include<QGraphicsPixmapItem>
 
 class GameScene : public QMainWindow
 {
@@ -12,9 +11,6 @@ public:
 
     //重写PaintEvent事件，画背景图
     void paintEvent(QPaintEvent*);
-
-    //基本元素的声明
-    QGraphicsPixmapItem Fireman;
 
 signals:
     //写一个自定义的信号，告诉主场景，点击了返回

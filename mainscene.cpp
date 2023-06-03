@@ -15,13 +15,13 @@ MainScene::MainScene(QWidget *parent) :
     //配置主场景
 
     //设置固定大小
-    setFixedSize(800,450);
+    setFixedSize(1200,887);
 
     //设置图标
-    setWindowIcon(QIcon(":/res/box.jpg"));
+    setWindowIcon(QIcon(":/res/iconflag.png"));
 
     //设置标题
-    setWindowTitle("开始界面");
+    setWindowTitle("开始游戏界面");
 
     //退出按钮的实现
     connect(ui->actionQuit,&QAction::triggered,[=]{
@@ -29,10 +29,10 @@ MainScene::MainScene(QWidget *parent) :
     });
 
     //开始按钮
-    MyPushButton* startBtn=new MyPushButton(":/res/button.png");
+    MyPushButton* startBtn=new MyPushButton(":/res/playbutton.png");
     startBtn->setParent(this);
     //将按钮移动到屏幕中间
-    startBtn->move(this->width()*0.5-startBtn->width()*0.5 , this->height()*0.5);
+    startBtn->move(this->width()*0.5-startBtn->width()*0.5 , this->height()*0.4);
 
     //实例化游戏界面
     gameScene=new GameScene;
@@ -72,7 +72,7 @@ MainScene::MainScene(QWidget *parent) :
 void MainScene::paintEvent(QPaintEvent*){
     QPainter painter(this);
     QPixmap pix;
-    pix.load(":/res/forest1.jpg");
+    pix.load(":/res/mainscene.jpg");
     //对图像进行拉伸以填满整个屏幕
     painter.drawPixmap(0,0,this->width(),this->height(),pix);
 

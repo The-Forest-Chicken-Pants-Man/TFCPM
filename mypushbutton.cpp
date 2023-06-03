@@ -49,6 +49,8 @@ void MyPushButton::zoom1(){
     animation->start();
 
 }
+
+
 void MyPushButton::zoom2(){
     //创建动态对象
     QPropertyAnimation * animation = new QPropertyAnimation(this,"geometry");
