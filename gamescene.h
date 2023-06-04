@@ -13,14 +13,28 @@ public:
     //重写PaintEvent事件，画背景图
     void paintEvent(QPaintEvent*);
     void timerEvent(QTimerEvent *time);
-    //Fireman的坐标
-    double x=109;
-    double y=600;
+    //Fireman的坐标（初始坐标与当前坐标）
+    double ini_x=109;
+    double ini_y=650;
+    double x=ini_x;
+    double y=ini_y;
     //刷新频率
     int id1;
     //Fireman
     QLabel* Fire;
-    QLabel* player;
+    //fireman的各种图片
+    QPixmap* pixmap;
+    QPixmap* pixmapr;
+    QPixmap* pixmapl;
+
+    //成功函数
+    void Victory();
+    //失败函数
+    void Failure();
+
+    //判断输赢函数
+    bool judge_win(double X,double Y);
+    bool judge_lose(double X,double Y);
 
 signals:
     //写一个自定义的信号，告诉主场景，点击了返回

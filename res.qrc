@@ -1,8 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>res/box.jpg</file>
-        <file>res/fire.png</file>
-        <file>res/huo.png</file>
         <file>res/iconflag.png</file>
         <file>res/statebutton.png</file>
         <file>res/mainscene.jpg</file>
@@ -11,6 +9,6 @@
         <file>res/MenuMusic.wav</file>
         <file>res/fireman2.png</file>
         <file>res/fireman3.png</file>
-        <file>res/fireman4.png</file>
+        <file>res/fireman1.png</file>
     </qresource>
 </RCC>
