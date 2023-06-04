@@ -15,7 +15,7 @@ MainScene::MainScene(QWidget *parent) :
     //配置主场景
 
     //设置固定大小
-    setFixedSize(1200,887);
+    setFixedSize(1000,739);
 
     //设置图标
     setWindowIcon(QIcon(":/res/iconflag.png"));
@@ -28,6 +28,12 @@ MainScene::MainScene(QWidget *parent) :
         this->close();
     });
 
+
+//    //播放背景音乐
+//    QSoundEffect * MSback=new QSoundEffect(this);
+//    MSback->setSource(QUrl::fromLocalFile(":/res/MenuMusic.wav"));
+//    MSback->play();
+
     //开始按钮
     MyPushButton* startBtn=new MyPushButton(":/res/playbutton.png");
     startBtn->setParent(this);
@@ -39,6 +45,7 @@ MainScene::MainScene(QWidget *parent) :
 
     //监听游戏界面中返回按钮的信号（注：该代码不需要写在下面的connect函数内部，因为该信号的创建只需要建立一次）
     connect(gameScene,&GameScene::gameSceneBack,this,[=](){
+
         //隐藏掉游戏场景
         gameScene->hide();
         //重新显示主场景

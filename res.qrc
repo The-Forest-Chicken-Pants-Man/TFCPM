@@ -5,8 +5,12 @@
         <file>res/huo.png</file>
         <file>res/iconflag.png</file>
         <file>res/statebutton.png</file>
-        <file>res/gamescene.png</file>
         <file>res/mainscene.jpg</file>
         <file>res/playbutton.png</file>
+        <file>res/gamescene.png</file>
+        <file>res/MenuMusic.wav</file>
+        <file>res/fireman2.png</file>
+        <file>res/fireman3.png</file>
+        <file>res/fireman4.png</file>
     </qresource>
 </RCC>

@@ -2,6 +2,7 @@
 #define GAMESCENE_H
 
 #include <QMainWindow>
+#include<QLabel>
 
 class GameScene : public QMainWindow
 {
@@ -11,6 +12,15 @@ public:
 
     //重写PaintEvent事件，画背景图
     void paintEvent(QPaintEvent*);
+    void timerEvent(QTimerEvent *time);
+    //Fireman的坐标
+    double x=109;
+    double y=600;
+    //刷新频率
+    int id1;
+    //Fireman
+    QLabel* Fire;
+    QLabel* player;
 
 signals:
     //写一个自定义的信号，告诉主场景，点击了返回
