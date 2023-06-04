@@ -18,6 +18,17 @@ public:
     double ini_y=650;
     double x=ini_x;
     double y=ini_y;
+
+    //冰娃的坐标
+    double b_ini_x=109;
+    double b_ini_y=548;
+    double bx=b_ini_x;
+    double by=b_ini_y;
+    QLabel* Ice;
+    QPixmap* bpixmap;
+    QPixmap* bpixmapr;
+    QPixmap* bpixmapl;
+
     //刷新频率
     int id1;
     //Fireman
@@ -33,8 +44,9 @@ public:
     void Failure();
 
     //判断输赢函数
-    bool judge_win(double X,double Y);
+    bool judge_win(double X,double Y,double bX,double bY);
     bool judge_lose(double X,double Y);
+    bool judge_lose_ice(double X,double Y);
 
 signals:
     //写一个自定义的信号，告诉主场景，点击了返回

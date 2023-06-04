@@ -10,5 +10,8 @@
         <file>res/fireman2.png</file>
         <file>res/fireman3.png</file>
         <file>res/fireman1.png</file>
+        <file>res/icegirl1.png</file>
+        <file>res/icegirl2.png</file>
+        <file>res/icegirl3.png</file>
     </qresource>
 </RCC>
