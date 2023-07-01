@@ -28,12 +28,14 @@ SOURCES += \
         main.cpp \
         mainscene.cpp \
     mypushbutton.cpp \
-    gamescene.cpp
+    gamescene.cpp \
+    myqlabel.cpp
 
 HEADERS += \
         mainscene.h \
     mypushbutton.h \
-    gamescene.h
+    gamescene.h \
+    myqlabel.h
 
 FORMS += \
         mainscene.ui

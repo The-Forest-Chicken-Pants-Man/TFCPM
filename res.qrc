@@ -1,11 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>res/box.jpg</file>
         <file>res/iconflag.png</file>
         <file>res/statebutton.png</file>
         <file>res/mainscene.jpg</file>
         <file>res/playbutton.png</file>
-        <file>res/gamescene.png</file>
         <file>res/MenuMusic.wav</file>
         <file>res/fireman2.png</file>
         <file>res/fireman3.png</file>
@@ -13,5 +11,26 @@
         <file>res/icegirl1.png</file>
         <file>res/icegirl2.png</file>
         <file>res/icegirl3.png</file>
+        <file>res/ice_diamond.png</file>
+        <file>res/red_diamond.png</file>
+        <file>res/purpleorgan.png</file>
+        <file>res/yelloworgan.png</file>
+        <file>res/gamescene.png</file>
+        <file>res/yellowbutton3.png</file>
+        <file>res/yellowbutton1.png</file>
+        <file>res/yellowbutton2.png</file>
+        <file>res/purplebutton1.png</file>
+        <file>res/purplebutton2.png</file>
+        <file>res/purplebutton3.png</file>
+        <file>res/box.jpg</file>
+        <file>res/cloud.png</file>
+        <file>res/Fail.png</file>
+        <file>res/Failure.png</file>
+        <file>res/FireDoor.png</file>
+        <file>res/fireman5.png</file>
+        <file>res/IceDoor.png</file>
+        <file>res/icegirl5.png</file>
+        <file>res/stairs.png</file>
+        <file>res/top.png</file>
     </qresource>
 </RCC>
