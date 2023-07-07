@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include<QLabel>
 #include"myqlabel.h"
-//添加头文件——已改
 #include <QPropertyAnimation>
 #include <QParallelAnimationGroup>
 #include <QGraphicsOpacityEffect>
@@ -15,6 +14,8 @@
 #include <QPoint>
 #include <QApplication>
 #include <QCursor>
+#include<QMediaPlayer>
+#include<QAudioOutput>
 
 
 class GameScene : public QMainWindow
@@ -22,6 +23,7 @@ class GameScene : public QMainWindow
     Q_OBJECT
 public:
     explicit GameScene(QWidget *parent = nullptr);
+
 
 
     //重写PaintEvent事件，画背景图
@@ -75,13 +77,32 @@ public:
     bool judge_lose(double X,double Y);
     bool judge_lose_ice(double X,double Y);
 
-    QLabel* red_diamond;
+    QLabel* red_diamond1;
     //红宝石的图片
-    QPixmap* red_pixmap;
+    QPixmap* red_pixmap1;
+    QLabel* red_diamond2;
+    //红宝石的图片
+    QPixmap* red_pixmap2;
+    QLabel* red_diamond3;
+    //红宝石的图片
+    QPixmap* red_pixmap3;
+    QLabel* red_diamond4;
+    //红宝石的图片
+    QPixmap* red_pixmap4;
 
-    QLabel* ice_diamond;
+
+    QLabel* ice_diamond1;
     //篮宝石的图片
-    QPixmap* ice_pixmap;
+    QPixmap* ice_pixmap1;
+    QLabel* ice_diamond2;
+    //篮宝石的图片
+    QPixmap* ice_pixmap2;
+    QLabel* ice_diamond3;
+    //篮宝石的图片
+    QPixmap* ice_pixmap3;
+    QLabel* ice_diamond4;
+    //篮宝石的图片
+    QPixmap* ice_pixmap4;
 
     QLabel* box;
     //箱子的图片
@@ -91,12 +112,12 @@ public:
     //成功动画
     void GoUp(QLabel*,int,int);
     void WinFlash();
-    //失败动画——已改
+    //失败动画
     //拷贝原因——方便动画中修改透明度
     QLabel* Cloud;
     QLabel* FireCopy;
     QLabel* IceCopy;
-    //成功动画——已改
+    //成功动画
     QLabel *FireDoor,*IceDoor,*FireStair,*IceStair,*Top;
     QLabel *FireBack,*IceBack;
     //图片效果载入
@@ -106,11 +127,27 @@ public:
     void init();//初始化函数
     //失败图片
     QLabel* Fail;
-
+    //成功图片
+    QLabel* Win;
 
 
     bool judge_floor(double X,double Y);
     int adjust_floor(double X,double Y);
+    bool judge_leftwall(double X,double Y);
+    bool judge_rightwall(double X,double Y);
+    bool judge_head(int X,int Y);
+
+    //一大堆的音效
+    QMediaPlayer * Death;
+    QAudioOutput * Deathout;
+    QMediaPlayer * Diamond;
+    QAudioOutput * Diamondout;
+    QMediaPlayer * jump_fire;
+    QAudioOutput * jump_fireout;
+    QMediaPlayer * jump_ice;
+    QAudioOutput * jump_iceout;
+    QMediaPlayer * Door;
+    QAudioOutput * Doorout;
 
 protected:
     void mousePressEvent(QMouseEvent *event) override;

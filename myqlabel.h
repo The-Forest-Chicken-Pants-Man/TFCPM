@@ -5,6 +5,8 @@
 #include <QObject>
 #include <QString>
 #include<QTimer>
+#include<QMediaPlayer>
+#include<QAudioOutput>
 
 class MyQLabel : public QLabel
 {
@@ -41,6 +43,14 @@ public:
     QTimer * timer4;
     int minn=1;
     int maxx=3;
+
+    //一大堆音效
+    QMediaPlayer * Platform;
+    QAudioOutput * Platformout;
+    QMediaPlayer * Pusher;
+    QAudioOutput * Pusherout;
+    QMediaPlayer * Lever;
+    QAudioOutput * Leverout;
 
 };
 

@@ -25,6 +25,23 @@ MyQLabel::MyQLabel(QString normalImg,QString pressImg)
     //设置图片
     this->setPixmap(pix);
 
+    //一大堆音效
+    Platform = new QMediaPlayer(this);
+    Platformout = new QAudioOutput(this);
+    Platform ->setAudioOutput(Platformout);
+    Platform ->setSource(QUrl("qrc:/res/Platform.mp3"));
+
+    Lever = new QMediaPlayer(this);
+    Leverout = new QAudioOutput(this);
+    Lever ->setAudioOutput(Leverout);
+    Lever ->setSource(QUrl("qrc:/res/Lever.mp3"));
+
+    Pusher = new QMediaPlayer(this);
+    Pusherout = new QAudioOutput(this);
+    Pusher ->setAudioOutput(Pusherout);
+    Pusher ->setSource(QUrl("qrc:/res/Pusher.mp3"));
+
+
     //初识化定时器对象
     timer1 = new QTimer(this);
     timer2 = new QTimer(this);
@@ -72,7 +89,7 @@ MyQLabel::MyQLabel(QString normalImg,QString pressImg)
         this->setFixedSize(pix.width(),pix.height());
         //设置图片
         this->setPixmap(pix);
-        //判断转变结束将Min重置为1
+        //判断转变结束将Minn重置为1
         if(this->minn>this->maxx){
             this->minn=1;
             timer3->stop();
@@ -86,7 +103,7 @@ MyQLabel::MyQLabel(QString normalImg,QString pressImg)
         this->setFixedSize(pix.width(),pix.height());
         //设置图片
         this->setPixmap(pix);
-        //判断转变结束将Min重置为1
+        //判断转变结束将maxx重置为3
         if(this->minn>this->maxx){
             this->maxx=3;
             timer4->stop();
@@ -98,15 +115,15 @@ MyQLabel::MyQLabel(QString normalImg,QString pressImg)
 
     connect(timer5,&QTimer::timeout,[=](){
         if(this->hei>this->ini_hei )
-            hei-=1;
+        {hei-=1;Platform->play();}
         else
-            timer5->stop();
+        {timer5->stop();Platform->stop();}
     });
     connect(timer6,&QTimer::timeout,[=](){
         if(this->hei<this->ini_hei+80 )
-            hei+=1;
+        {hei+=1;Platform->play();}
         else
-            timer6->stop();
+        {timer6->stop();Platform->stop();}
     });
 
 }
@@ -130,6 +147,7 @@ void MyQLabel::up(){
 //    animation->start();
 
     timer5->start(10);
+    timer6->stop();
 }
 
 void MyQLabel::down(){
@@ -151,11 +169,13 @@ void MyQLabel::down(){
 //    animation->start();
 
     timer6->start(10);
+    timer5->stop();
 
 }
 
 void MyQLabel::rightandleft(bool fl){
     this->flag=fl;
+    Lever->play();
     if(this->flag)
         timer1->start(100);
     else
@@ -164,10 +184,21 @@ void MyQLabel::rightandleft(bool fl){
 
 void MyQLabel::upanddown(bool fl){
     this->flagg=fl;
+    Pusher->play();
     if(this->flagg)
+    {
+        timer4->stop();
+        this->maxx=3;
         timer3->start(100);
+        qDebug()<<"落";
+    }
     else
+    {
+        timer3->stop();
+        this->minn=1;
         timer4->start(100);
+        qDebug()<<"起";
+    }
 }
 
 void MyQLabel::init(){

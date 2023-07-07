@@ -4,7 +4,6 @@
         <file>res/statebutton.png</file>
         <file>res/mainscene.jpg</file>
         <file>res/playbutton.png</file>
-        <file>res/MenuMusic.wav</file>
         <file>res/fireman2.png</file>
         <file>res/fireman3.png</file>
         <file>res/fireman1.png</file>
@@ -32,5 +31,16 @@
         <file>res/icegirl5.png</file>
         <file>res/stairs.png</file>
         <file>res/top.png</file>
+        <file>res/Win.png</file>
+        <file>res/MenuMusic.mp3</file>
+        <file>res/LevelMusic.wav</file>
+        <file>res/Death.mp3</file>
+        <file>res/Diamond.mp3</file>
+        <file>res/Door.mp3</file>
+        <file>res/Jump_fb.mp3</file>
+        <file>res/Jump_wg.mp3</file>
+        <file>res/Lever.mp3</file>
+        <file>res/Platform.mp3</file>
+        <file>res/Pusher.mp3</file>
     </qresource>
 </RCC>

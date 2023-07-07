@@ -5,6 +5,9 @@
 #include<QDebug>
 #include<QTimer>
 #include"gamescene.h"
+#include<QMediaPlayer>
+#include<QAudioOutput>
+
 
 MainScene::MainScene(QWidget *parent) :
     QMainWindow(parent),
@@ -23,17 +26,6 @@ MainScene::MainScene(QWidget *parent) :
     //设置标题
     setWindowTitle("开始游戏界面");
 
-    //退出按钮的实现
-    connect(ui->actionQuit,&QAction::triggered,[=]{
-        this->close();
-    });
-
-
-//    //播放背景音乐
-//    QSoundEffect * MSback=new QSoundEffect(this);
-//    MSback->setSource(QUrl::fromLocalFile(":/res/MenuMusic.wav"));
-//    MSback->play();
-
     //开始按钮
     MyPushButton* startBtn=new MyPushButton(":/res/playbutton.png");
     startBtn->setParent(this);
@@ -43,6 +35,24 @@ MainScene::MainScene(QWidget *parent) :
     //实例化游戏界面
     gameScene=new GameScene;
 
+//    qDebug()<<"准备播放背景音乐";
+    //背景音乐的实现
+    mainBackgroundPlayer = new QMediaPlayer(this);
+    mainBackgroundAudioOutput = new QAudioOutput(this);
+    mainBackgroundPlayer->setAudioOutput(mainBackgroundAudioOutput);
+    mainBackgroundPlayer->setSource(QUrl("qrc:/res/MenuMusic.mp3"));
+    mainBackgroundAudioOutput->setVolume(50);
+    mainBackgroundPlayer->setLoops(-1);
+    mainBackgroundPlayer->play();
+    //背景音乐
+    gameBackgroundPlayer = new QMediaPlayer(this);
+    gameBackgroundAudioOutput = new QAudioOutput(this);
+    gameBackgroundPlayer->setAudioOutput(gameBackgroundAudioOutput);
+    gameBackgroundPlayer->setSource(QUrl("qrc:/res/LevelMusic.wav"));
+    gameBackgroundAudioOutput->setVolume(50);
+    gameBackgroundPlayer->setLoops(-1);
+
+
     //监听游戏界面中返回按钮的信号（注：该代码不需要写在下面的connect函数内部，因为该信号的创建只需要建立一次）
     connect(gameScene,&GameScene::gameSceneBack,this,[=](){
 
@@ -50,6 +60,9 @@ MainScene::MainScene(QWidget *parent) :
         gameScene->hide();
         //重新显示主场景
         this->show();
+        //背景音乐的切换
+        gameBackgroundPlayer->stop();
+        mainBackgroundPlayer->play();
     });
 
 
@@ -65,7 +78,10 @@ MainScene::MainScene(QWidget *parent) :
             //自身隐藏
             this->hide();
             //显示游戏场景
-            gameScene->show();            
+            gameScene->show();
+            //背景音乐的切换
+            mainBackgroundPlayer->stop();
+            gameBackgroundPlayer->play();
 
         });
 
